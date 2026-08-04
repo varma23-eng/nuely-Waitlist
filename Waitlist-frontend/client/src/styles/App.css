@@ -1,0 +1,371 @@
+
+/* Color Palette & Global Variables */
+:root {
+  --bg-color: #f5f6f1;
+  --text-dark: #0a0f08; /* Deepened almost to black for high contrast */
+  --text-light: #2c3625; /* Darkened significantly so paragraphs are legible */
+  --accent-green: #122115; /* A very deep, rich forest green */
+  --border-color: #d8dbd0;
+  --card-bg: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Adds a subtle warm tint over the image so the dark text remains readable */
+  background: linear-gradient(rgba(245, 246, 241, 0.6), rgba(245, 246, 241, 0.2)), url('../assets/nuely-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Keeps the background still when scrolling */
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 1.5rem 4rem; /* Gave it a bit more vertical padding to frame the glow */
+  position: relative;
+  
+  /* The Magic Spotlight: A soft white radial glow exactly in the center */
+  background: radial-gradient(ellipse 350px 150px at center, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.brand-logo {
+  height: 160px; /* Massively increased size for instant impact */
+  object-fit: contain;
+  mix-blend-mode: multiply; /* This removes the white box background completely */
+  transition: transform 0.4s ease; /* Prepares the logo for a smooth hover animation */
+  cursor: pointer;
+}
+
+.brand-logo:hover {
+  transform: scale(1.03); /* Adds a subtle, premium zoom effect when hovered */
+}
+
+.coming-soon-tag {
+  position: absolute; 
+  right: 4rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: #ffffff; /* Make the text pure white */
+  background-color: var(--accent-green); /* Use the deep green for the badge */
+  padding: 0.6rem 1.2rem; /* Add spacing inside the badge */
+  border-radius: 30px; /* Gives it perfectly rounded edges */
+  text-transform: uppercase;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Lifts it off the background */
+}
+
+/* Main Layout */
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* This forces the text and form to align to the top instead of the middle */
+  padding: 4rem 8rem; /* Gives everything a nice breathing room from the header */
+  flex: 1;
+  gap: 4rem;
+}
+
+/* Hero Section */
+.hero-section {
+  max-width: 600px;
+  margin-top: 2.5rem; /* This visually balances the text with the top of the form */
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 600; /* Made slightly bolder */
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.9); /* Adds a white halo */
+}
+
+.hero-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+  color: var(--accent-green);
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.8); /* Stronger white halo for the big text */
+}
+
+.hero-section em {
+  font-style: italic;
+  font-weight: 400;
+}
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-light);
+  margin-bottom: 3rem;
+  max-width: 450px;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9); /* Halos the paragraph text */
+  font-weight: 500;
+}
+
+
+.feature-tags {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dark);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dot {
+  color: var(--text-light);
+}
+
+/* Waitlist Form Card */
+.form-card {
+  /* Semi-transparent white background */
+  background: rgba(255, 255, 255, 0.65); 
+  
+  /* The magic frosted glass blur effect */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  
+  /* A subtle white border to give it a polished glass edge */
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  
+  padding: 3rem;
+  border-radius: 12px; /* Slightly softer corners fit the natural theme better */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.form-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.form-subtext {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-group label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 1px solid rgba(26, 31, 22, 0.3); /* Softer line */
+  background: transparent !important; /* Forces it to blend with the glass */
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+  color: var(--text-dark);
+}
+
+.input-group input:focus {
+  border-bottom-color: var(--accent-green);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--accent-green);
+  color: white;
+  border: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: opacity 0.2s;
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+}
+
+.submit-btn:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+}
+
+.disclaimer {
+  font-size: 0.7rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-top: 1.5rem;
+  line-height: 1.4;
+}
+
+.status-message {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.status-message.success {
+  color: #2b3e2b;
+  background-color: #eef0e9;
+}
+
+.status-message.error {
+  color: #902727;
+  background-color: #fce8e8;
+}
+
+/* =========================================
+   FOOTER SECTION
+   ========================================= */
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 8rem;
+  margin-top: auto; /* Pushes the footer to the very bottom of the screen */
+  
+  /* Premium Glassmorphism Effect */
+  background: rgba(255, 255, 255, 0.45); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-section h4 {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: var(--accent-green);
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+}
+
+.footer-link, .footer-text {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  margin: 0;
+  font-weight: 500;
+}
+
+.footer-link a, .footer-text a {
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.footer-link a:hover, .footer-text a:hover {
+  opacity: 0.6; /* Soft fade on hover */
+}
+
+.footer-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--accent-green); /* Highlights the icons in your deep green */
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS 
+   ========================================= */
+@media (max-width: 968px) {
+  /* 1. Stack the layout vertically instead of side-by-side */
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem; /* Reduce the huge empty spaces */
+    gap: 3rem;
+  }
+
+  /* 2. Adjust the Header */
+  .site-header {
+    padding: 1.5rem 1rem;
+    flex-direction: column; /* Stack logo and badge */
+    gap: 1.5rem;
+  }
+
+  /* 3. Shrink the Logo for mobile */
+  .brand-logo {
+    height: 90px; 
+  }
+
+  /* 4. Fix the Coming Soon badge so it stops floating absolutely */
+  .coming-soon-tag {
+    position: relative;
+    right: auto;
+  }
+
+  /* 5. Center and shrink the Hero Text */
+  .hero-section {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .hero-section h1 {
+    font-size: 3rem; /* Shrink headline */
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    margin: 0 auto 2rem auto; /* Center the paragraph */
+  }
+
+  /* Center the little feature tags */
+  .feature-tags {
+    justify-content: center;
+    flex-wrap: wrap; /* Allows them to drop to a new line if needed */
+    line-height: 2;
+  }
+
+  /* 6. Shrink the form padding slightly so it fits small screens */
+  .form-card {
+    padding: 2rem 1.5rem;
+  }
+
+  /* (Place this inside your existing @media block) */
+  .site-footer {
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+    gap: 2.5rem;
+    text-align: center;
+  }
+  
+  .footer-link, .footer-text {
+    justify-content: center;
+  }
+}
