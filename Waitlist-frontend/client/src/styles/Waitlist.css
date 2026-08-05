@@ -1,0 +1,233 @@
+.waitlist-card{
+    font-family: "Inter", sans-serif;
+}
+.waitlist-card{
+
+    width:100%;
+    max-width:460px;
+
+    background:#fff;
+
+    border-radius:28px;
+
+    padding:42px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.08);
+
+    position:sticky;
+
+    top:120px;
+
+    margin:0 auto;
+}
+.waitlist-card{
+
+    backdrop-filter: blur(12px);
+
+    border:1px solid rgba(201,161,90,.15);
+
+    transition:.35s ease;
+}
+
+.waitlist-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 35px 80px rgba(0,0,0,.12);
+
+}
+
+.private-access{
+
+    color:#B8893F;
+
+    font-size:13px;
+
+    letter-spacing:3px;
+
+    display:block;
+
+    margin-bottom:18px;
+}
+
+.waitlist-card h2{
+
+    font-size:48px;
+
+    margin:0 0 20px;
+
+    color:#132B1D;
+
+    font-family:"Cormorant Garamond",serif;
+}
+
+.card-text{
+
+    color:#666;
+
+    margin-bottom:30px;
+}
+
+.input-group{
+
+    margin-bottom:18px;
+}
+
+.input-group input{
+
+    width:100%;
+
+    height:58px;
+
+    border:1px solid #E4D9C9;
+
+    border-radius:12px;
+
+    padding:0 20px;
+
+    font-size:16px;
+}
+
+.join-btn{
+
+    width:100%;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:12px;
+
+    margin-top:20px;
+
+    background:#0E2E1D;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+}
+
+.privacy{
+
+    margin-top:25px;
+
+    color:#777;
+
+    font-size:14px;
+}
+.success-message{
+    margin-top:18px;
+    padding:12px;
+    text-align:center;
+
+    color:#0E6B3C;
+
+    background:#EAF8EF;
+
+    border:1px solid #9FD5B2;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+}
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width:1024px){
+
+.waitlist-card{
+
+    position:static;
+
+    max-width:600px;
+
+    margin:auto;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+.waitlist-card{
+
+    position:static;
+
+    width:100%;
+
+    max-width:100%;
+
+    padding:24px;
+
+    border-radius:22px;
+
+}
+
+.waitlist-card h2{
+
+    font-size:34px;
+
+    text-align:center;
+
+}
+
+.private-access{
+
+    text-align:center;
+
+}
+
+.card-text{
+
+    text-align:center;
+
+    font-size:15px;
+
+}
+
+.input-group{
+
+    margin-bottom:16px;
+
+}
+
+.input-group input{
+
+    height:52px;
+
+    font-size:15px;
+
+}
+
+.join-btn{
+
+    height:54px;
+
+    font-size:15px;
+
+}
+
+.privacy{
+
+    text-align:center;
+
+    font-size:13px;
+
+}
+
+.success-message{
+
+    font-size:14px;
+
+}
+
+}

@@ -1,0 +1,69 @@
+/* ==========================
+   PREMIUM HEADER
+========================== */
+
+.site-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 82px;
+
+    background: rgba(255,252,248,.96);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(201,181,145,.25);
+
+    z-index: 999;
+}
+
+.header-inner{
+
+    width:100%;
+
+    max-width:1400px;
+
+    height:82px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
+
+.brand-logo{
+
+    width:145px;
+
+    height:auto;
+
+    display:block;
+
+    object-fit:contain;
+
+    transition:.35s ease;
+}
+
+.brand-logo:hover{
+    transform: scale(1.03);
+}
+@media (max-width:768px){
+
+.site-header{
+    height:70px;
+}
+
+.header-inner{
+    height:70px;
+}
+
+.brand-logo{
+    width:110px;
+}
+
+}

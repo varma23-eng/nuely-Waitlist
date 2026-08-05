@@ -1,3 +1,4 @@
+console.log("app.js loaded");
 export async function submitWaitlist(data) {
   const response = await fetch(`${import.meta.env.VITE_API_URL}/api/waitlist`, {
     method: "POST",

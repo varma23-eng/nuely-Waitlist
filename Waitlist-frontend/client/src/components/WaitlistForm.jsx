@@ -1,66 +1,138 @@
-import React, { useState } from 'react';
-import { submitWaitlist } from '../services/api';
-import '../styles/App.css';
+import React, { useState } from "react";
+import "../styles/Waitlist.css";
 
 export default function WaitlistForm() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '' });
-  const [status, setStatus] = useState({ type: '', message: '' });
-  const [isLoading, setIsLoading] = useState(false);
+
+ const [formData, setFormData] = useState({
+  name: "",
+  email: "",
+  phone: "",
+});
+
+const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setStatus({ type: '', message: '' });
+  const handleSubmit = async () => {
 
     try {
-      const res = await submitWaitlist(formData);
-      setStatus({ type: 'success', message: res.message });
-      setFormData({ name: '', email: '', phone: '' }); // Clear form
+
+      const response = await fetch("http://localhost:5000/api/waitlist", {
+
+        method: "POST",
+
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        body: JSON.stringify(formData),
+
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+
+        setSuccess("Successfully joined the waitlist!");
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+        });
+        setTimeout(() => {
+  setSuccess("");
+}, 3000);
+
+      } else {
+
+        alert(data.message || "Something went wrong.");
+
+      }
+
     } catch (error) {
-      setStatus({ type: 'error', message: error.message });
-    } finally {
-      setIsLoading(false);
+
+      console.error(error);
+
+      alert("Cannot connect to the server.");
+
     }
+
   };
 
   return (
-    <div className="form-card">
-      <p className="form-eyebrow">PRIVATE ACCESS</p>
-      <h2>Join the waitlist</h2>
-      <p className="form-subtext">Be among the first to experience Nuely.</p>
 
-      <form onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label>YOUR NAME</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Enter your name" required />
-        </div>
-        
-        <div className="input-group">
-          <label>EMAIL ADDRESS</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="you@example.com" required />
-        </div>
+    <div className="waitlist-card">
 
-        <div className="input-group">
-          <label>PHONE NUMBER</label>
-          <input type="tel" name="phone" value={formData.phone} onChange={handleChange} placeholder="+91 98765 43210" />
-        </div>
+      <span className="private-access">
+        PRIVATE ACCESS
+      </span>
 
-        <button type="submit" disabled={isLoading} className="submit-btn">
-          {isLoading ? 'JOINING...' : 'JOIN THE WAITLIST'}
-        </button>
+      <h2>DISCOVER OUR COLLECTION</h2>
 
-        {status.message && (
-          <p className={`status-message ${status.type}`}>{status.message}</p>
-        )}
-      </form>
-
-      <p className="disclaimer">
-        By joining, you agree to receive launch updates from Nuely. No spam. Unsubscribe anytime.
+      <p className="card-text">
+        Be among the first to experience Nuely.
       </p>
+
+      <div className="input-group">
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+
+      </div>
+
+      <div className="input-group">
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+        />
+
+      </div>
+
+      <div className="input-group">
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="+91 Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+
+      </div>
+
+      <button
+        className="join-btn"
+        onClick={handleSubmit}
+      >
+        RESERVE YOUR ACCESS →
+      </button>
+      {success && (
+  <p className="success-message">
+    ✅ {success}
+  </p>
+)}
+
+      <div className="privacy">
+        🛡️ We respect your privacy.
+      </div>
+
     </div>
+
   );
+
 }

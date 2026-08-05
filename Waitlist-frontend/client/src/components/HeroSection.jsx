@@ -1,21 +1,37 @@
-import React from 'react';
-import '../styles/App.css';
+import React from "react";
+import { PiLeafFill } from "react-icons/pi";
+import "../styles/Hero.css";
 
 export default function HeroSection() {
   return (
-    <div className="hero-section">
-      <p className="eyebrow">A NEW RITUAL IS COMING</p>
-      <h1>Your skin's <br/><em>new beginning.</em></h1>
-      <p className="description">
-        Thoughtful skincare is almost here. Join the private Nuely waitlist for early access, launch updates and first access to our opening collection.
+    <section className="hero-section">
+
+      <span className="launching">
+        LAUNCHING SOON
+      </span>
+
+      <h1 className="hero-title">
+        Nothing To Fix.
+        <br />
+        <em>Everything To</em>
+        <br />
+        Give Back.
+      </h1>
+
+      <p className="hero-subtitle">
+        Because true care doesn't change who you are —
+        <br />
+        it supports what nature already created.
       </p>
+
+      <div className="hero-line"></div>
+
       <div className="feature-tags">
-        <span>EARLY ACCESS</span>
-        <span className="dot">•</span>
-        <span>LAUNCH PRIVILEGES</span>
-        <span className="dot">•</span>
-        <span>PRIVATE UPDATES</span>
+
+        
+
       </div>
-    </div>
+
+    </section>
   );
 }

@@ -1,0 +1,181 @@
+.hero-section{
+    width:100%;
+    max-width:100%;
+    overflow:hidden;
+}
+
+.launching{
+
+    display:inline-block;
+
+    margin-bottom:30px;
+
+    color:#B8893F;
+
+    font-size:34px;
+
+    font-weight:400;
+
+    letter-spacing:10px;
+
+    text-transform:uppercase;
+}
+
+.hero-title{
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    color: #132B1D;
+
+    font-size: clamp(3rem, 8vw, 5.8rem);
+
+    line-height: 0.95;
+
+    margin-bottom: 35px;
+
+    word-break: break-word;
+
+    overflow-wrap: break-word;
+
+    white-space: normal;
+}
+
+.hero-title em{
+
+    font-style:italic;
+
+    font-weight:400;
+}
+
+.hero-subtitle{
+
+    font-family: "Inter", sans-serif;
+
+    font-size:22px;
+
+    color:#AE7B35;
+
+    line-height:1.8;
+
+    font-style:italic;
+}
+
+.hero-line{
+
+    width:130px;
+
+    height:2px;
+
+    background:#C8A15A;
+
+    margin-bottom:45px;
+}
+
+.feature-tags{
+
+    display:flex;
+
+    gap:40px;
+
+    flex-wrap:wrap;
+}
+
+.feature-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#24382B;
+
+    font-size:14px;
+
+    letter-spacing:2px;
+
+    font-weight:600;
+}
+
+.feature-item svg{
+
+    color:#B8893F;
+
+    font-size:18px;
+}
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width:1024px){
+
+.hero-title{
+
+    font-size:72px;
+
+}
+
+.hero-subtitle{
+
+    font-size:20px;
+
+}
+
+.feature-tags{
+
+    gap:20px;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+.hero-section{
+
+    text-align:center;
+
+}
+
+.launching{
+
+    font-size:20px;
+
+    letter-spacing:5px;
+
+}
+
+.hero-title{
+
+    font-size:48px;
+
+    line-height:1.1;
+
+}
+
+.hero-subtitle{
+
+    font-size:18px;
+
+    line-height:1.7;
+
+}
+
+.hero-line{
+
+    margin:30px auto;
+
+}
+
+.feature-tags{
+
+    justify-content:center;
+
+    gap:15px;
+
+}
+
+}

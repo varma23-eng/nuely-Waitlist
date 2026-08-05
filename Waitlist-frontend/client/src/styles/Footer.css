@@ -1,0 +1,206 @@
+.footer{
+
+    background:#0F2D1E;
+
+    color:white;
+
+    padding:60px 80px;
+}
+
+.footer-container{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:60px;
+
+    align-items:center;
+}
+
+.footer-column{
+
+    min-height:180px;
+}
+
+.footer-small{
+
+    color:#C89C47;
+
+    letter-spacing:3px;
+
+    font-size:12px;
+
+    margin-bottom:25px;
+}
+
+.instagram{
+
+    display:flex;
+
+    gap:20px;
+}
+
+.icon{
+
+    font-size:42px;
+
+    color:white;
+}
+
+.instagram h3{
+
+    margin:0;
+
+    font-size:28px;
+}
+
+.instagram p{
+
+    color:#ddd;
+
+    line-height:1.8;
+}
+
+.follow-btn{
+
+    margin-top:20px;
+
+    padding:12px 28px;
+
+    background:transparent;
+
+    border:1px solid #C89C47;
+
+    color:white;
+
+    border-radius:30px;
+
+    cursor:pointer;
+}
+
+.center{
+
+    text-align:center;
+
+    border-left:1px solid rgba(255,255,255,.2);
+
+    border-right:1px solid rgba(255,255,255,.2);
+}
+
+.center h2{
+
+    color:#C89C47;
+
+    font-size:38px;
+
+    margin-bottom:20px;
+
+    font-family:"Cormorant Garamond",serif;
+}
+
+.center p{
+
+    color:#ddd;
+
+    line-height:2;
+}
+
+.contact-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:22px;
+
+    color:#ddd;
+}
+
+.contact-item svg{
+
+    color:white;
+}
+.instagram-link{
+    color:white;
+    text-decoration:none;
+    font-size:28px;
+    font-weight:600;
+    transition:.3s ease;
+}
+
+.instagram-link:hover{
+    color:#C89C47;
+}
+
+.follow-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+}
+/* ===========================
+   TABLET
+=========================== */
+
+@media (max-width:1024px){
+
+.footer-container{
+
+    grid-template-columns:1fr;
+
+    gap:40px;
+
+}
+
+.center{
+
+    border:none;
+
+}
+
+.footer{
+
+    padding:50px 30px;
+
+}
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width:768px){
+
+.footer{
+
+    text-align:center;
+
+}
+
+.instagram{
+
+    justify-content:center;
+
+}
+
+.contact-item{
+
+    justify-content:center;
+
+}
+
+.follow-btn{
+
+    width:220px;
+
+}
+
+}

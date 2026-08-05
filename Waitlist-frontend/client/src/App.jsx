@@ -1,20 +1,22 @@
-import React from 'react';
-import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import WaitlistForm from './components/WaitlistForm';
-import Footer from './components/Footer'; /* Add this import */
-import './styles/App.css';
+import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
+import WaitlistForm from "./components/WaitlistForm";
+import Footer from "./components/Footer";
+
+import "./styles/App.css";
 
 function App() {
   return (
-    <div className="app-container">
+    <>
       <Header />
-      <main className="main-content">
+
+      <main className="hero-layout">
         <HeroSection />
         <WaitlistForm />
       </main>
-      <Footer /> {/* Add the component here */}
-    </div>
+
+      <Footer />
+    </>
   );
 }
 
