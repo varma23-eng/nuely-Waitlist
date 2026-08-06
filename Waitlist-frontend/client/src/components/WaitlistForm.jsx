@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import "../styles/Waitlist.css";
 
 export default function WaitlistForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
 
- const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  phone: "",
-});
-
-const [success, setSuccess] = useState("");
+  const [success, setSuccess] = useState("");
 
   const handleChange = (e) => {
     setFormData({
@@ -19,25 +18,21 @@ const [success, setSuccess] = useState("");
   };
 
   const handleSubmit = async () => {
-
     try {
-
-      const response = await fetch("http://localhost:5000/api/waitlist", {
-
-        method: "POST",
-
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        body: JSON.stringify(formData),
-
-      });
+      const response = await fetch(
+        "https://nuely-backend.onrender.com/api/waitlist",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
-
         setSuccess("Successfully joined the waitlist!");
 
         setFormData({
@@ -45,30 +40,21 @@ const [success, setSuccess] = useState("");
           email: "",
           phone: "",
         });
+
         setTimeout(() => {
-  setSuccess("");
-}, 3000);
-
+          setSuccess("");
+        }, 3000);
       } else {
-
         alert(data.message || "Something went wrong.");
-
       }
-
     } catch (error) {
-
-      console.error(error);
-
+      console.error("Error:", error);
       alert("Cannot connect to the server.");
-
     }
-
   };
 
   return (
-
     <div className="waitlist-card">
-
       <span className="private-access">
         PRIVATE ACCESS
       </span>
@@ -80,7 +66,6 @@ const [success, setSuccess] = useState("");
       </p>
 
       <div className="input-group">
-
         <input
           type="text"
           name="name"
@@ -88,11 +73,9 @@ const [success, setSuccess] = useState("");
           value={formData.name}
           onChange={handleChange}
         />
-
       </div>
 
       <div className="input-group">
-
         <input
           type="email"
           name="email"
@@ -100,11 +83,9 @@ const [success, setSuccess] = useState("");
           value={formData.email}
           onChange={handleChange}
         />
-
       </div>
 
       <div className="input-group">
-
         <input
           type="tel"
           name="phone"
@@ -112,7 +93,6 @@ const [success, setSuccess] = useState("");
           value={formData.phone}
           onChange={handleChange}
         />
-
       </div>
 
       <button
@@ -121,18 +101,16 @@ const [success, setSuccess] = useState("");
       >
         RESERVE YOUR ACCESS →
       </button>
+
       {success && (
-  <p className="success-message">
-    ✅ {success}
-  </p>
-)}
+        <p className="success-message">
+          ✅ {success}
+        </p>
+      )}
 
       <div className="privacy">
         🛡️ We respect your privacy.
       </div>
-
     </div>
-
   );
-
 }
