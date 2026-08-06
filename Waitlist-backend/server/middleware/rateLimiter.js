@@ -1,9 +1,13 @@
 const rateLimit = require("express-rate-limit");
 
 const waitlistLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 5, // Limit each IP to 5 requests per windowMs
-  message: { message: "Too many requests from this IP, please try again later." }
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    message: "Too many requests from this IP, please try again later.",
+  },
 });
 
 module.exports = waitlistLimiter;
