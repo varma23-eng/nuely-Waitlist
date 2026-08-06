@@ -1,17 +1,27 @@
 const mysql = require("mysql2/promise");
 require("dotenv").config();
-console.log("HOST:", process.env.DB_HOST);
-console.log("USER:", process.env.DB_USER);
-console.log("DB:", process.env.DB_NAME);
-console.log("PASSWORD:", process.env.DB_PASSWORD);
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   waitForConnections: true,
   connectionLimit: 10,
 });
+
+(async () => {
+  try {
+    const conn = await pool.getConnection();
+    console.log("✅ Connected to TiDB successfully!");
+    conn.release();
+  } catch (err) {
+    console.error("❌ Database connection failed:", err);
+  }
+})();
 
 module.exports = pool;
